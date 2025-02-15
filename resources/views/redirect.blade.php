@@ -12,7 +12,7 @@
             // Try opening the app
             window.location = appScheme;
 
-            // If app is not installed, redirect to web after 2 seconds
+            // If app is not installed, redirect to web after 10 seconds
             setTimeout(function() {
                 window.location = webUrl;
             }, 10000);

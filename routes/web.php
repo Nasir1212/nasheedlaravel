@@ -67,3 +67,7 @@ Route::get('/share/{nasheed_id}/{nasheed_name}', function ($nasheed_id,$nasheed_
 
     return view('redirect', compact('app_scheme', 'web_url'));
 });
+
+Route::get('/test/view',function(){
+    return view('test');
+});

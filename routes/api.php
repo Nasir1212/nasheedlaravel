@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\NatteController;
 use App\Http\Controllers\Api\LyricistController;
 use App\Http\Controllers\Api\LoveController;
+use App\Http\Controllers\Api\userAuthController;
 
 
 Route::get('/user', function (Request $request) {
@@ -12,6 +13,13 @@ Route::get('/user', function (Request $request) {
 });
 
 // ->middleware('auth:sanctum');
+
+Route::controller(userAuthController::class)->group(function () {
+    Route::post('/register', 'register');        
+    Route::post('/login', 'login');        
+        
+  
+});
 
 Route::controller(NatteController::class)->group(function () {
     Route::get('/get_all_natte', 'getAllNatte');        
