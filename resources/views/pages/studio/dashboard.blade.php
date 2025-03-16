@@ -1,13 +1,60 @@
 @extends('layouts.studio.app')
 @section('title', 'Dashboard')
+
 @section('content')
+<style>
+  /* body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    } */
+    .dashboard-message {
+      background: #ffffff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .dashboard-message h2 {
+    color: #333333;
+    margin-bottom: 2px;
+    font-size: 14px;
+}
+.dashboard-message p {
+    font-size: 11px;
+    color: #9f9d9d;
+    line-height: 1.5;
+    text-align: justify;
+    font-weight: bold;
+    margin-bottom: 0rem;
+}
+.dashboard-message .footer {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #888888;
+}
+</style>
 
 
-
-    <div class="row">
-      <div class="col-lg-6 col-12">
+    <div class="row" style="min-height: 30rem;height:100%">
+      <div class="col-lg-12">
+        <div class="dashboard-message">
+          <h2>প্রিয় নাশিদ রচনাকারীগণ,</h2>
+          <p>
+            নাশিদ হাব-এ আমরা সৃজনশীলতার এবং স্বতন্ত্রতার যে মহামূল্য ধারণাকে পালন করি, তা অটুট রাখতে আপনাদের সাহায্য প্রয়োজন। অনুগ্রহ করে শুধুমাত্র আপনার নিজস্ব রচিত নাশিদই আপলোড করুন। এতে আমাদের প্ল্যাটফর্মের মৌলিকতা বজায় থাকবে এবং সকলেই সত্যিকার অর্থে নতুন সৃষ্টির আনন্দ উপভোগ করতে পারবে।
+          </p>
+          <div class="footer">ধন্যবাদ!</div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-12">
         <div class="row">
-          <div class="col-lg-6 col-md-6 col-12">
+          <div class="col-lg-4 col-md-6 col-12">
             <div class="card">
               <span class="mask bg-primary opacity-10 border-radius-lg"></span>
               <div class="card-body p-3 position-relative">
@@ -17,11 +64,12 @@
                       <i class="ni ni-circle-08 text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
                     </div>
                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                      1600
+                     
+                    {{count(auth('studio')->user()->nasheeds)}}
                     </h5>
-                    <span class="text-white text-sm">Users Active</span>
+                    <span class="text-white text-sm">Total Nasheed</span>
                   </div>
-                  <div class="col-4">
+                  {{-- <div class="col-4">
                     <div class="dropdown text-end mb-6">
                       <a href="javascript:;" class="cursor-pointer" id="dropdownUsers1" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-ellipsis-h text-white"></i>
@@ -33,12 +81,12 @@
                       </ul>
                     </div>
                     <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+55%</p>
-                  </div>
+                  </div> --}}
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 col-12 mt-4 mt-md-0">
+          <div class="col-lg-4 col-md-6 col-12 mt-4 mt-md-0">
             <div class="card">
               <span class="mask bg-dark opacity-10 border-radius-lg"></span>
               <div class="card-body p-3 position-relative">
@@ -48,11 +96,11 @@
                       <i class="ni ni-active-40 text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
                     </div>
                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                      357
+                     {{auth('studio')->user()->totalLoveCount()}}
                     </h5>
-                    <span class="text-white text-sm">Click Events</span>
+                    <span class="text-white text-sm">Love React</span>
                   </div>
-                  <div class="col-4">
+                  {{-- <div class="col-4">
                     <div class="dropstart text-end mb-6">
                       <a href="javascript:;" class="cursor-pointer" id="dropdownUsers2" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-ellipsis-h text-white"></i>
@@ -64,14 +112,12 @@
                       </ul>
                     </div>
                     <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+124%</p>
-                  </div>
+                  </div> --}}
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="row mt-4">
-          <div class="col-lg-6 col-md-6 col-12">
+          <div class="col-lg-4 col-md-6 col-12  mt-4 mt-md-0">
             <div class="card">
               <span class="mask bg-dark opacity-10 border-radius-lg"></span>
               <div class="card-body p-3 position-relative">
@@ -81,11 +127,11 @@
                       <i class="ni ni-cart text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
                     </div>
                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                      2300
+                     {{auth('studio')->user()->totalViewCount()}}
                     </h5>
-                    <span class="text-white text-sm">Purchases</span>
+                    <span class="text-white text-sm">Total View </span>
                   </div>
-                  <div class="col-4">
+                  {{-- <div class="col-4">
                     <div class="dropdown text-end mb-6">
                       <a href="javascript:;" class="cursor-pointer" id="dropdownUsers3" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-ellipsis-h text-white"></i>
@@ -97,12 +143,15 @@
                       </ul>
                     </div>
                     <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+15%</p>
-                  </div>
+                  </div> --}}
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 col-12 mt-4 mt-md-0">
+        </div>
+        <div class="row mt-4">
+         
+          {{-- <div class="col-lg-6 col-md-6 col-12 mt-4 mt-md-0">
             <div class="card">
               <span class="mask bg-dark opacity-10 border-radius-lg"></span>
               <div class="card-body p-3 position-relative">
@@ -132,10 +181,10 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
-      <div class="col-lg-6 col-12 mt-4 mt-lg-0">
+      {{-- <div class="col-lg-6 col-12 mt-4 mt-lg-0">
         <div class="card shadow h-100">
           <div class="card-header pb-0 p-3">
             <h6 class="mb-0">Reviews</h6>
@@ -194,9 +243,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
     </div>
-    <div class="row my-4">
+    {{-- <div class="row my-4">
       <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
         <div class="card">
           <div class="card-header pb-0">
@@ -540,8 +589,9 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="row mt-4">
+    </div> --}}
+
+    {{-- <div class="row mt-4">
       <div class="col-lg-7 mb-lg-0 mb-4">
         <div class="card">
           <div class="card-body p-3">
@@ -718,7 +768,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
 
   @endsection

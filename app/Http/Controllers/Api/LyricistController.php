@@ -12,6 +12,10 @@ class LyricistController extends Controller
        return LyricistModel::withCount('nateRasuls')->get();
     }
 
+  public function get_lyricist_by_id($id){
+      return LyricistModel::where('id',$id)->withCount('nateRasuls')->get();
+    }
+
     public function get_by_lyricist_id($id){
        $poems  =  NateRasul::where(['lyricist'=>$id])->get();
 

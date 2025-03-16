@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
  class Controller
 {
-    public $ImgUrl = "http://localhost:9000";
+    public $ImgUrl = "https://img.nasheedhub.com";
 
     protected function extractFirstTwoPTags($htmlContent)
     {

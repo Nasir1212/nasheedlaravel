@@ -22,10 +22,45 @@
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  <style>
+    /* Custom Styling for Alerts */
+.alert {
+    border-radius: 10px;
+    padding: 15px;
+    font-family: 'Arial', sans-serif;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.btn-close {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+}
+
+.btn-close:hover {
+    color: #000;
+}
+
+.alert strong {
+    font-weight: bold;
+}
+
+  </style>
 </head>
 
 <body class="">
-  <div class="container position-sticky z-index-sticky top-0">
+  {{-- <div class="container position-sticky z-index-sticky top-0">
     <div class="row">
       <div class="col-12">
         <!-- Navbar -->
@@ -82,26 +117,35 @@
         <!-- End Navbar -->
       </div>
     </div>
-  </div>
+  </div> --}}
   <main class="main-content  mt-0">
     <section>
       <div class="page-header min-vh-75">
         <div class="container">
           <div class="row">
             <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
-              <div class="card card-plain mt-8">
+              <div class="card card-plain ">
 
                 <div class="card-header pb-0 text-left bg-transparent">
                   <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
-                  <p class="mb-0">Enter your email and password to sign in</p>
+                  <p class="mb-0" style="font-size: 12px;font-weight:bold">Enter your email and password to sign in</p>
                 </div>
 
                 @if (session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">x</button>
+                    <i class="fas fa-check-circle me-2"></i>
+                    <strong>Success!</strong> {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-                @endif
+            @endif
+            
+            @if (session('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    <strong>Error!</strong> {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
                 <div class="card-body">
                   <form role="form" method="POST" action="{{route('studio.login_studio')}}">
                     <label>Email</label>
@@ -143,7 +187,7 @@
   <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <footer class="footer py-5">
     <div class="container">
-      <div class="row">
+      {{-- <div class="row">
         <div class="col-lg-8 mb-4 mx-auto text-center">
           <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
             Company
@@ -181,13 +225,12 @@
             <span class="text-lg fab fa-github"></span>
           </a>
         </div>
-      </div>
+      </div> --}}
       <div class="row">
-        <div class="col-8 mx-auto text-center mt-1">
-          <p class="mb-0 text-secondary">
-            Copyright © <script>
-              document.write(new Date().getFullYear())
-            </script> Soft by Creative Tim.
+        <div class="col-12 mx-auto text-center ">
+          <p class="mb-0 text-secondary" style="width: 100%">
+            Copyright ©<script>document.write(new Date().getFullYear())</script>
+             <a href="{{url('/')}}" class="font-weight-bold" target="_blank">NasheedHub </a>.<br/> All Rights Reserved.
           </p>
         </div>
       </div>

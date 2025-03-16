@@ -22,7 +22,7 @@ class LoveController extends Controller
                     'user_id' => $request->user_id,
                     'nasheed_id' => $request->nasheed_id
                ]);
-         return response()->json(['message' => 'Nasheed loved successfully'], 201);
+         return response()->json(['message' => 'Nasheed loved successfully'], 200);
 
         }
         return response()->json(['message' => 'Already loved this Nasheed'], 409);

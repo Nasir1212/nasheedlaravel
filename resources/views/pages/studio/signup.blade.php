@@ -33,11 +33,11 @@
   <meta property="og:description" content="Soft UI Dashboard 3 is a beautiful Bootstrap 5 admin dashboard with a large number of components, designed to look beautiful and organized. If you are looking for a tool to manage and visualize data about your business, this dashboard is the thing for you." />
   <meta property="og:site_name" content="Creative Tim" />
   <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800" rel="stylesheet" />
+  {{-- <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="https://demos.creative-tim.com/argon-dashboard-pro/assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="https://demos.creative-tim.com/argon-dashboard-pro/assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome Icons --> --}}
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQ8qAsc81yM6pWv10CsGpG1ZjN3PMBcH7r61p1bTJ0lx6j6BO9OYq6lM5" crossorigin="anonymous">
   <!-- CSS Files -->
@@ -45,9 +45,12 @@
   <!-- Anti-flicker snippet (recommended)  -->
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> --}}
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 
-  <style>
+  {{-- <style>
     .async-hide {
       opacity: 0 !important
     }
@@ -108,11 +111,11 @@
         'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
-  </script>
+  </script> --}}
   <!-- End Google Tag Manager -->
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-  <script defer data-site="demos.creative-tim.com" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  {{-- <script defer data-site="demos.creative-tim.com" src="https://api.nepcha.com/js/nepcha-analytics.js"></script> --}}
 </head>
 
 <body class="">
@@ -130,8 +133,8 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent mt-4">
     <div class="container">
-      <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="../pages/dashboard.html">
-        Sign Up Studio Panel
+      <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="#">
+         Studio Panel
       </a>
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon mt-2">
@@ -143,29 +146,19 @@
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
+            <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="{{url('/')}}">
               <i class="fa fa-chart-pie opacity-6  me-1"></i>
-              Dashboard
+              Home
             </a>
           </li>
+        
           <li class="nav-item">
-            <a class="nav-link me-2" href="../pages/profile.html">
-              <i class="fa fa-user opacity-6  me-1"></i>
-              Profile
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link me-2" href="../pages/sign-up.html">
+            <a class="nav-link me-2" href="{{route('studio.login')}}">
               <i class="fas fa-user-circle opacity-6  me-1"></i>
-              Sign Up
+              SignIn
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link me-2" href="../pages/sign-in.html">
-              <i class="fas fa-key opacity-6  me-1"></i>
-              Sign In
-            </a>
-          </li>
+        
         </ul>
         {{-- <li class="nav-item d-flex align-items-center">
           <a class="btn btn-round btn-sm mb-0 btn-outline-white me-2" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
@@ -187,7 +180,9 @@
           <div class="row justify-content-center">
             <div class="col-lg-5 text-center mx-auto">
               <h1 class="text-white mb-2 mt-5">Welcome!</h1>
-              <p class="text-lead text-white">Use these awesome forms to login or create new account in your project for free.</p>
+              <p class="text-lead text-white" style="text-align: justify;
+    font-size: 11px;
+    font-weight: bold;">A Shayer is a master of emotions, a weaver of words who breathes life into thoughts and feelings through the art of poetry. With each verse, they craft worlds of passion, wisdom, and imagination, creating a bridge between the heart and the mind. Their words have the power to stir emotions, provoke deep reflection, and inspire generations, echoing through time as a testament to human expression. A true Shayer blends truth, beauty, and creativity into a language that transcends mere words, capturing the deepest emotions and unveiling the unspoken melodies of the soul.</p>
             </div>
           </div>
         </div>
@@ -298,7 +293,7 @@
     <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
     <footer class="footer py-5">
       <div class="container">
-        <div class="row">
+        {{-- <div class="row">
           <div class="col-lg-8 mb-4 mx-auto text-center">
             <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               Company
@@ -336,13 +331,13 @@
               <span class="text-lg fab fa-github"></span>
             </a>
           </div>
-        </div>
+        </div> --}}
+        
         <div class="row">
           <div class="col-8 mx-auto text-center mt-1">
-            <p class="mb-0 text-secondary">
-              Copyright © <script>
-                document.write(new Date().getFullYear())
-              </script> Soft by Creative Tim.
+            <p class="mb-0 text-secondary" style="width: 100%">
+              Copyright ©<script>document.write(new Date().getFullYear())</script>
+               <a href="{{url('/')}}" class="font-weight-bold" target="_blank">NasheedHub </a>.<br/> All Rights Reserved.
             </p>
           </div>
         </div>
@@ -384,7 +379,7 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{{asset('assets/js/soft-ui-dashboard.min.js?v=1.1.0')}}"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8eb4ef728e5abc25","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2024.10.5","token":"1b7cbb72744b40c580f8633c6b62637e"}' crossorigin="anonymous"></script>
+{{-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8eb4ef728e5abc25","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2024.10.5","token":"1b7cbb72744b40c580f8633c6b62637e"}' crossorigin="anonymous"></script> --}}
 </body>
 
 </html>

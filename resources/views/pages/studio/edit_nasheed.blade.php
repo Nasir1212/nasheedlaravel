@@ -25,12 +25,12 @@
                 <form action="{{ route('studio.update_nasheed') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label for="title" class="form-label">Nasheed Title</label>
+                        <label for="title" class="form-label">Nasheed title</label>
                         <input type="text"  name="title" class="form-control" id="title" value="{{ old('title') }}{{$nasheed->title}}" required>
                         <input type="hidden" name="id" value="{{encrypt($nasheed->id)}}" id="">
                     </div>
                     <div class="mb-3">
-                        <label for="author" class="form-label">Lyricist</label>
+                        <label for="author" class="form-label">Shayer's name</label>
                         <input type="text" readonly  class="form-control"  value="{{Auth::guard('studio')->user()->name}}" required>
                     </div>
                     <div class="mb-3">

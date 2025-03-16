@@ -72,9 +72,17 @@ class userAuthController extends Controller
         $token = $user->createToken('nasheedHub')->plainTextToken;
     
         return response()->json([
-            'message' => 'Login successful!',
             'user'=>$user,
             'token' => $token
         ]);
+    }
+
+    public function logout(Request $request) {
+        // Revoke the user's current token
+        $request->user()->tokens()->delete();
+    
+        return response()->json([
+            'message' => 'Logged out successfully'
+        ], 200);
     }
 }

@@ -11,12 +11,13 @@ use App\Models\VideoLink;
 class studioController extends Controller
 {
     public function dashboard(){
-       
+        
         return view('pages.studio.dashboard');
     }
 
     public function my_nasheed():View{
-        $nasheeds = NateRasul::where(['lyricist'=>\Auth::guard('studio')->user()->id])->get();
+        $nasheeds = NateRasul::where(['lyricist'=>\Auth::guard('studio')->user()->id])->withCount('love')->withCount('view')->get();
+        
         return view('pages.studio.my_nasheed',['nasheeds'=>$nasheeds]);
     }
 

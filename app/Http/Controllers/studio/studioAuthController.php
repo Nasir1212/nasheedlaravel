@@ -13,7 +13,7 @@ class studioAuthController extends Controller
     if (!Auth::guard('studio')->check()) {
       return view('pages.studio.login');
     }
-    return back();
+    return redirect()->route('studio.dashboard');
    }
 
    public function login_studio(Request $request){
@@ -26,7 +26,7 @@ class studioAuthController extends Controller
      
     }
 
-    return back()->withErrors(['email' => 'Invalid credentials.']);
+    return back()->with(['error' => 'Invalid email or password.']);
    }
 
    public function signup(){

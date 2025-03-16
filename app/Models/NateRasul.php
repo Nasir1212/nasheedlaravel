@@ -26,5 +26,13 @@ public function video_link(){
     return $this->hasMany(VideoLink::class,'lyric_id');
 
 }
+public function love(){
+    return $this->hasMany(NasheedLove::class,'nasheed_id');
+
+}
+public function view(){
+    return $this->hasMany(NasheedView::class,'nasheed_id');
+
+}
 
 }

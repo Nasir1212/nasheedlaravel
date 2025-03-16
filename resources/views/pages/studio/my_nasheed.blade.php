@@ -36,11 +36,11 @@
                     <h6 class="mb-0 text-xs">{{$nasheed->title}}</h6>
                   </td>
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">{{rand(20,60)}}</span>
+                    <span class="text-secondary text-xs font-weight-bold">{{$nasheed->love_count}}</span>
 
                   </td>
                   <td class="align-middle text-center">          
-                    <span class="text-secondary text-xs font-weight-bold">{{rand(50,200)}}</span>
+                    <span class="text-secondary text-xs font-weight-bold">{{$nasheed->view_count}}</span>
                   </td>
                   <td class="align-middle text-center">
                     <a href="{{route('studio.edit_nasheed',['id'=>encrypt($nasheed->id)])}}" class="btn btn-warning " > <i class=" fa fa-edit" ></i> </a>

@@ -6,6 +6,7 @@ use App\Http\Controllers\studio\studioAuthController;
 use App\Http\Controllers\studio\ProfileController;
 use App\Http\Middleware\AuthenticateStudio;
 Route::get('/', function () {
+    return redirect()->route('studio.dashboard');
     return view('welcome');
 });
 

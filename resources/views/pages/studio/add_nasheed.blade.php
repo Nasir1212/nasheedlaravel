@@ -1,5 +1,6 @@
 @extends('layouts.studio.app')
 @section('title', 'Add Nasheed')
+@section('url_title', 'Add Nasheed')
 @section('content')
 
 <div class="row">
@@ -23,11 +24,11 @@
                 <form action="{{ route('studio.store_nasheed') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label for="title" class="form-label">Nasheed Title</label>
+                        <label for="title" class="form-label">Nasheed title</label>
                         <input type="text" name="title" class="form-control" id="title" value="{{ old('title') }}" required>
                     </div>
                     <div class="mb-3">
-                        <label for="author" class="form-label">Lyricist</label>
+                        <label for="author" class="form-label">Shayer's name</label>
                         <input type="text" readonly  class="form-control"  value="{{Auth::guard('studio')->user()->name}}" required>
                     </div>
                     <div class="mb-3">

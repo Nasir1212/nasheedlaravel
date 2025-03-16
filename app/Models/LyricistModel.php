@@ -38,4 +38,17 @@ class LyricistModel extends Authenticatable
 {
     return $this->hasMany(NateRasul::class,'lyricist');
 }
+    public function nasheeds()
+{
+    return $this->hasMany(NateRasul::class,'lyricist');
+}
+
+public function totalLoveCount()
+{
+    return $this->nasheeds()->withCount('love')->get()->sum('love_count');
+}
+public function totalViewCount()
+{
+    return $this->nasheeds()->withCount('view')->get()->sum('view_count');
+}
 }
